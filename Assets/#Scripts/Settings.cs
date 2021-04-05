@@ -12,13 +12,13 @@ public class Settings : MonoBehaviour
     public void SetSensitivity(float value)
     {
         Sensitivity.value = value;
-        GameManager1.Instance.MouseSens = Sensitivity.value;
+        GameMan.Instance.MouseSens = Sensitivity.value;
     }
 
     public void SetSounds(float value)
     {
         Sounds.value = value;
-    }
+    } 
 
     public void SetLight(float value)
     {

@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     IEnumerator destroy()
     {
         yield return new WaitForSeconds(1);
-        GameManager1.Instance.bullet_cnt -= 1; 
+        GameMan.Instance.bullet_cnt -= 1; 
         Destroy(gameObject);
     }
 }

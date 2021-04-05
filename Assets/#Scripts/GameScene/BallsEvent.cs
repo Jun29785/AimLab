@@ -9,10 +9,10 @@ public class BallsEvent : MonoBehaviour
         if (other.tag == "Player")
         {
             DestroyObject(gameObject);
-            BAllMan.Instance.obj_cnt -= 1;
-            BAllMan.Instance.per_scr += 1;
-            BAllMan.Instance.score += 100 / BAllMan.Instance.try_cnt;
-            BAllMan.Instance.try_cnt = 0;
+            BallMan.Instance.obj_cnt -= 1;
+            BallMan.Instance.per_scr += 1;
+            BallMan.Instance.score += 100 / BallMan.Instance.try_cnt;
+            BallMan.Instance.try_cnt = 0;
         }
     }
 }

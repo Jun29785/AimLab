@@ -12,17 +12,17 @@ public class Scene : MonoBehaviour
 
     public void LobbyScene()
     {
-        GameManager1.Instance.LoadScene("Lobby");
+        GameMan.Instance.LoadScene("Lobby");
         Destroy(gamemanager);
     }
     public void SettingsScene()
     {
-        GameManager1.Instance.LoadScene("Settings");
+        GameMan.Instance.LoadScene("Settings");
     }
     public void GameScene()
     {
-        GameManager.Instance.LoadScene("Game");
+        GameMan.Instance.LoadScene("Game");
         StartCoroutine(seconds());
-        GameManager1.Instance.IsStarted = true;
+        GameMan.Instance.IsStarted = true;
     }
 }
