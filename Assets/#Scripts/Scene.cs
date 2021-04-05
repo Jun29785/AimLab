@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Scene : MonoBehaviour
 {
+    public GameObject gamemanager;
     IEnumerator seconds()
     {
         yield return new WaitForSeconds(4);
@@ -11,16 +12,17 @@ public class Scene : MonoBehaviour
 
     public void LobbyScene()
     {
-        GameManager.Instance.LoadScene("Lobby");
+        GameManager1.Instance.LoadScene("Lobby");
+        Destroy(gamemanager);
     }
     public void SettingsScene()
     {
-        GameManager.Instance.LoadScene("Settings");
+        GameManager1.Instance.LoadScene("Settings");
     }
     public void GameScene()
     {
         GameManager.Instance.LoadScene("Game");
         StartCoroutine(seconds());
-        GameManager.Instance.IsStarted = true;
+        GameManager1.Instance.IsStarted = true;
     }
 }

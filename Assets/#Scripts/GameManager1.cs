@@ -3,17 +3,17 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager1 : Singleton<GameManager>
 {
     // 게임의 시작 상태
     public bool IsStarted;
 
     [SerializeField]
     public float MouseSens = 1f;
-    
+
     public double CurrentScore;
 
-    public double BestScore=0;
+    public double BestScore = 0;
 
     public int bullet_cnt;
     private void Update()
@@ -25,7 +25,7 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene(SceneName);
     }
-   
+
     private void ScoreUpdate()
     {
         if (IsStarted)

@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class BallManager : Singleton<BallManager>
+public class BAllMan : Singleton<BAllMan>
 {
     public int obj_cnt;
 
@@ -19,7 +18,7 @@ public class BallManager : Singleton<BallManager>
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.IsStarted)
+        if (GameManager1.Instance.IsStarted)
         {
             Spawn();
             UpdateText();
@@ -40,7 +39,7 @@ public class BallManager : Singleton<BallManager>
         double randomY = Random.Range((float)1.5, (float)12.5);
         double randomX = Random.Range((float)-10.5, (float)9.5);
         double staticZ = 11.65;
-        if (obj_cnt <3)
+        if (obj_cnt < 3)
         {
             GameObject ball = (GameObject)Instantiate(balls, new Vector3((float)randomX, (float)randomY, (float)staticZ), Quaternion.identity);
             obj_cnt += 1;

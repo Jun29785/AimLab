@@ -22,12 +22,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()  // 컴퓨터마다 다르지만 대략 1초에 60번 실행
     {
-        if (GameManager.Instance.IsStarted)
+        if (GameManager1.Instance.IsStarted)
         {
             CameraRotation();       // 마우스를 위아래(Y) 움직임에 따라 카메라 X 축 회전 
                                     //CharacterRotation();    // 마우스 좌우(X) 움직임에 따라 캐릭터 Y 축 회전 
         }
-        if (!GameManager.Instance.IsStarted)
+        if (!GameManager1.Instance.IsStarted)
         {
             Cursor.lockState = CursorLockMode.Confined;
         }

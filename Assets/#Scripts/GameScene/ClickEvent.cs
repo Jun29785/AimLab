@@ -10,14 +10,14 @@ public class ClickEvent : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.IsStarted)
+        if (GameManager1.Instance.IsStarted)
         {
-            if (Input.GetMouseButtonDown(0) && GameManager.Instance.bullet_cnt < 5)
+            if (Input.GetMouseButtonDown(0) && GameManager1.Instance.bullet_cnt < 5)
             {
                 Instantiate(Bullet, FirePos.transform.position, FirePos.transform.rotation);
-                BallManager.Instance.click_cnt += 1;
-                GameManager.Instance.bullet_cnt += 1;
-                BallManager.Instance.try_cnt += 1;
+                BAllMan.Instance.click_cnt += 1;
+                GameManager1.Instance.bullet_cnt += 1;
+                BAllMan.Instance.try_cnt += 1;
             }
         }
     }

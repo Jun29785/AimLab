@@ -15,13 +15,13 @@ public class UI : MonoBehaviour
     public GameObject gameoverpanel;
     private void Update()
     {
-        if (GameManager.Instance.IsStarted)
+        if (GameManager1.Instance.IsStarted)
         {
             UpdateText();
             TimerText();
         }
 
-        if (!GameManager.Instance.IsStarted && gameoverpanel.activeSelf == false)
+        if (!GameManager1.Instance.IsStarted && gameoverpanel.activeSelf == false)
         {
             gameoverpanel.SetActive(true);
             GameOverText();
@@ -29,14 +29,14 @@ public class UI : MonoBehaviour
     }
     private void GameOverText()
     {
-        bestscore.text = GameManager.Instance.BestScore.ToString("최고점수 : 00000점");
-        currentscore.text = GameManager.Instance.CurrentScore.ToString("점수 : 00000점");
-        percentage.text = BallManager.Instance.percent.ToString("정확도 : 00.00%");
+        bestscore.text = GameManager1.Instance.BestScore.ToString("최고점수 : 00000점");
+        currentscore.text = GameManager1.Instance.CurrentScore.ToString("점수 : 00000점");
+        percentage.text = BAllMan.Instance.percent.ToString("정확도 : 00.00%");
     }
     private void UpdateText()
     {
-        score.text = BallManager.Instance.score.ToString();
-        Percen.text = BallManager.Instance.percent.ToString("00.00%");
+        score.text = BAllMan.Instance.score.ToString();
+        Percen.text = BAllMan.Instance.percent.ToString("00.00%");
     }
     private void TimerText()
     {
@@ -45,7 +45,7 @@ public class UI : MonoBehaviour
 
         if (LimitTime <= 0)
         {
-            GameManager.Instance.IsStarted = false;
+            GameManager1.Instance.IsStarted = false;
         }
     }
 }
