@@ -6,6 +6,6 @@ public class SetSensitivity : MonoBehaviour
 {
    public void SetValue(float SliderValue)
     {
-
+        BallMan.Instance.MouseSens = SliderValue;
     }
 }

@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class BallMan : Singleton<BallMan>
 {
     [SerializeField]
-    public float MouseSens = 1f;
+    public float MouseSens;
 
     public int obj_cnt;
 
