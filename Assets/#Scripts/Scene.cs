@@ -9,7 +9,7 @@ public class Scene : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
     }
-
+    
     public void LobbyScene()
     {
         GameMan.Instance.LoadScene("Lobby");

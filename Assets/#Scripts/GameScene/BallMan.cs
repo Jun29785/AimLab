@@ -19,18 +19,13 @@ public class BallMan : Singleton<BallMan>
 
     public GameObject balls;
 
-    // Update is called once per frame
     void Update()
     {
+        DontDestroyOnLoad(gameObject);
         if (GameMan.Instance.IsStarted)
         {
             Spawn();
             UpdateText();
-        }
-
-        if (!GameMan.Instance.IsStarted)
-        {
-            Destroy(gameObject);
         }
     }
 
