@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class BallMan : Singleton<BallMan>
 {
     [SerializeField]
     public float MouseSens;
+
+    public float Alphaval;
 
     public int obj_cnt;
 
@@ -19,8 +22,15 @@ public class BallMan : Singleton<BallMan>
 
     public GameObject balls;
 
+    public GameObject Alpha;
+    Image image;
+    void Start()
+    {
+        MouseSens = 1f;
+    }
     void Update()
     {
+        SetAlphaVal();
         DontDestroyOnLoad(gameObject);
         if (GameMan.Instance.IsStarted)
         {
@@ -49,5 +59,9 @@ public class BallMan : Singleton<BallMan>
             obj_cnt += 1;
             Debug.Log("create balls");
         }
+    }
+    private void SetAlphaVal()
+    {
+        Alpha.GetComponent<Image>().color= new Color32(0,0,0,(byte)Alphaval);
     }
 }
