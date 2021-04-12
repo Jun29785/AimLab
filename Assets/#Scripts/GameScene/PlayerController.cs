@@ -22,17 +22,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()  // 컴퓨터마다 다르지만 대략 1초에 60번 실행
     {
-        if (GameMan.Instance.IsStarted)
+        if (GameMan.Instance.IsStarted && !BallMan.Instance.IsSetting)
         {
             CameraRotation();       // 마우스를 위아래(Y) 움직임에 따라 카메라 X 축 회전 
                                     //CharacterRotation();    // 마우스 좌우(X) 움직임에 따라 캐릭터 Y 축 회전 
         }
-        if (!GameMan.Instance.IsStarted)
+        if (!GameMan.Instance.IsStarted && !BallMan.Instance.IsSetting)
         {
             Cursor.lockState = CursorLockMode.Confined;
         }
     }
-
+    #region 화면이 마우스를 따라가기
     private void CameraRotation()
     {
         HorizonsRot = Input.GetAxis("Mouse X") * 150f * BallMan.Instance.MouseSens * Time.deltaTime;
@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(PlayerXRotValue, PlayerYRotValue, 0);
     }
+    #endregion
+
 
     private void Zvalue(float value)
     {

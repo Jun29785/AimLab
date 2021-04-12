@@ -6,12 +6,17 @@ using Random = UnityEngine.Random;
 
 public class BallMan : Singleton<BallMan>
 {
+    #region 변수 선언
     [SerializeField]
     public float MouseSens;
+
 
     public float Alphaval;
 
     public int obj_cnt;
+
+    public bool IsSetting = false;
+    public bool IsLobby = false;
 
     public float score = 0;
     public float percent = 0f;
@@ -24,6 +29,7 @@ public class BallMan : Singleton<BallMan>
 
     public GameObject Alpha;
     Image image;
+    #endregion
     void Start()
     {
         MouseSens = 1f;
@@ -31,8 +37,7 @@ public class BallMan : Singleton<BallMan>
     void Update()
     {
         SetAlphaVal();
-        DontDestroyOnLoad(gameObject);
-        if (GameMan.Instance.IsStarted)
+        if (GameMan.Instance.IsStarted && !IsSetting)
         {
             Spawn();
             UpdateText();
@@ -53,7 +58,7 @@ public class BallMan : Singleton<BallMan>
         double randomY = Random.Range((float)1.5, (float)12.5);
         double randomX = Random.Range((float)-10.5, (float)9.5);
         double staticZ = 11.65;
-        if (obj_cnt <3)
+        if (obj_cnt < 3)
         {
             GameObject ball = (GameObject)Instantiate(balls, new Vector3((float)randomX, (float)randomY, (float)staticZ), Quaternion.identity);
             obj_cnt += 1;
@@ -62,6 +67,6 @@ public class BallMan : Singleton<BallMan>
     }
     private void SetAlphaVal()
     {
-        Alpha.GetComponent<Image>().color= new Color32(0,0,0,(byte)Alphaval);
+        Alpha.GetComponent<Image>().color = new Color32(0, 0, 0, (byte)Alphaval);
     }
 }

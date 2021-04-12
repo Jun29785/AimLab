@@ -15,13 +15,13 @@ public class UI : MonoBehaviour
     public GameObject gameoverpanel;
     private void Update()
     {
-        if (GameMan.Instance.IsStarted)
+        if (GameMan.Instance.IsStarted && !BallMan.Instance.IsSetting)
         {
             UpdateText();
             TimerText();
         }
 
-        if (!GameMan.Instance.IsStarted && gameoverpanel.activeSelf == false)
+        if (!GameMan.Instance.IsStarted && gameoverpanel.activeSelf == false && !BallMan.Instance.IsSetting)
         {
             gameoverpanel.SetActive(true);
             GameOverText();

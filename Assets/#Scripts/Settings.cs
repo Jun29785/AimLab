@@ -5,23 +5,34 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
-    public Slider Sensitivity;
-    public Slider Sounds;
-    public Slider Light;
-
-    public void SetSensitivity(float value)
+    public GameObject Setting;
+    public GameObject Lobby;
+    private void Update()
     {
-        Sensitivity.value = value;
-        GameMan.Instance.MouseSens = Sensitivity.value;
+        OnOffSetting();
+    }
+    private void OnOffSetting()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Setting.activeSelf == false)
+            {
+                Setting.SetActive(true);
+                BallMan.Instance.IsSetting = true;
+            }
+            else
+            {
+                Setting.SetActive(false);
+                BallMan.Instance.IsSetting = false;
+            }
+        }
     }
 
-    public void SetSounds(float value)
+    private void OnLobby()
     {
-        Sounds.value = value;
-    } 
-
-    public void SetLight(float value)
-    {
-        Light.value = value;
+        if (BallMan.Instance.IsLobby && Lobby.activeSelf == false)
+            Lobby.SetActive(true);
+        else
+            Lobby.SetActive(false);
     }
 }

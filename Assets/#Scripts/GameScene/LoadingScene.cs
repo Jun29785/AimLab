@@ -19,6 +19,7 @@ public class LoadingScene : MonoBehaviour
         if (time >= 3)
         {
             LobbyScene();
+            BallMan.Instance.IsLobby = true;
         }
     }
     public void LobbyScene()
