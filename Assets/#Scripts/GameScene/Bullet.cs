@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float Speed = 100f;
+
     void Update()
     {
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
@@ -18,7 +19,7 @@ public class Bullet : MonoBehaviour
     IEnumerator destroy()
     {
         yield return new WaitForSeconds(1);
-        GameMan.Instance.bullet_cnt -= 1; 
+        GameManager.Instance.Bullet_Cnt -= 1; 
         Destroy(gameObject);
     }
 }

@@ -11,9 +11,4 @@ public class SetLights : MonoBehaviour
     void Update()
     {
     }
-
-    public void SetAlpha(float slidervalue)
-    {
-        BallMan.Instance.Alphaval = slidervalue;
-    }
 }

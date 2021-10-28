@@ -8,11 +8,17 @@ public class BallsEvent : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            DestroyObject(gameObject);
-            BallMan.Instance.obj_cnt -= 1;
-            BallMan.Instance.per_scr += 1;
-            BallMan.Instance.score += 100 / BallMan.Instance.try_cnt;
-            BallMan.Instance.try_cnt = 0;
+            Destroy();
         }
+    }
+
+    private void Destroy()
+    {
+        this.gameObject.SetActive(false);
+        BallMan.Instance.obj_cnt -= 1;
+        BallMan.Instance.per_scr += 1;
+        GameManager.Instance.CurrentScore += 100 + (10 *  (5-BallMan.Instance.try_cnt));
+        BallMan.Instance.try_cnt = 0;
+        DestroyObject(this.gameObject);
     }
 }

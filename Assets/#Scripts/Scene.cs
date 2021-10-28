@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scene : MonoBehaviour
+public class Scene : Singleton<Scene>
 {
-    public GameObject gamemanager;
     IEnumerator seconds()
     {
         yield return new WaitForSeconds(4);
@@ -12,17 +11,17 @@ public class Scene : MonoBehaviour
     
     public void LobbyScene()
     {
-        GameMan.Instance.LoadScene("Lobby");
-        Destroy(gamemanager);
+        GameManager.Instance.LoadScene("Lobby");
     }
     public void SettingsScene()
     {
-        GameMan.Instance.LoadScene("Settings");
+        GameManager.Instance.LoadScene("Settings");
     }
     public void GameScene()
     {
-        GameMan.Instance.LoadScene("Game");
+        GameManager.Instance.GameInit();
+        GameManager.Instance.LoadScene("Game");
         StartCoroutine(seconds());
-        GameMan.Instance.IsStarted = true;
+        GameManager.Instance.IsStarted = true;
     }
 }

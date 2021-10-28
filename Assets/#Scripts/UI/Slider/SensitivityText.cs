@@ -9,6 +9,6 @@ public class SensitivityText : MonoBehaviour
     
     void Update()
     {
-        Sens.text = BallMan.Instance.MouseSens.ToString("0.000");
+        Sens.text = GameManager.Instance.MouseSens.ToString("0.000");
     }
 }

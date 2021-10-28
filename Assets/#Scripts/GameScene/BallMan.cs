@@ -1,47 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class BallMan : Singleton<BallMan>
 {
     #region 변수 선언
-    [SerializeField]
-    public float MouseSens;
-
-
-    public float Alphaval;
-
     public int obj_cnt;
-
-    public bool IsSetting = false;
-    public bool IsLobby = false;
 
     public float score = 0;
     public float percent = 0f;
     public float per_scr;
 
     public int click_cnt;
-    public int try_cnt;
+    public int try_cnt = 0;
 
     public GameObject balls;
-
-    public GameObject Alpha;
-    Image image;
     #endregion
+
     void Start()
     {
-        MouseSens = 1f;
+        GameManager.Instance.MouseSens = 1f;
     }
+
     void Update()
     {
-        SetAlphaVal();
-        if (GameMan.Instance.IsStarted && !IsSetting)
+        if (GameManager.Instance.IsStarted && !GameManager.Instance.IsSetting)
         {
             Spawn();
             UpdateText();
         }
+    }
+
+    private void Init()
+    {
+        GameManager.Instance.Bullet_Cnt = 5;
     }
 
     private void UpdateText()
@@ -53,6 +45,7 @@ public class BallMan : Singleton<BallMan>
         }
         //score *= percent * 100;
     }
+    
     private void Spawn()
     {
         double randomY = Random.Range((float)1.5, (float)12.5);
@@ -64,9 +57,5 @@ public class BallMan : Singleton<BallMan>
             obj_cnt += 1;
             Debug.Log("create balls");
         }
-    }
-    private void SetAlphaVal()
-    {
-        Alpha.GetComponent<Image>().color = new Color32(0, 0, 0, (byte)Alphaval);
     }
 }

@@ -18,12 +18,12 @@ public class LoadingScene : MonoBehaviour
         time = currenttime - starttime;
         if (time >= 3)
         {
-            LobbyScene();
-            BallMan.Instance.IsLobby = true;
+            Scene.Instance.LobbyScene();
         }
     }
-    public void LobbyScene()
+
+    public void ToLobby()
     {
-        GameMan.Instance.LoadScene("Lobby");
+        Scene.Instance.LobbyScene();
     }
 }

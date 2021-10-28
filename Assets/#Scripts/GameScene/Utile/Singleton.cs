@@ -38,7 +38,5 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 		{
 			instance = this as T;
 		}
-
-		DontDestroyOnLoad(this);
 	}
 }
